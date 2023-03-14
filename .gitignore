@@ -1,0 +1,6 @@
+*.py[cod]
+.coverage
+.mypy_cache/
+/.buildts
+__pycache__/
+coverage.xml

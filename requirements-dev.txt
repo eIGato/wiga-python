@@ -1,0 +1,11 @@
+autoflake
+black
+coverage
+flake8
+flake8-black
+flake8-isort
+isort
+mypy
+pytest
+pytest-asyncio
+pytest-cov
