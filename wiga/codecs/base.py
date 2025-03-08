@@ -5,7 +5,7 @@ from abc import (
     abstractmethod,
 )
 
-from wiga.message import Message
+from wiga.models import Message
 
 
 class Codec(ABC):

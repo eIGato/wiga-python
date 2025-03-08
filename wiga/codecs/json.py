@@ -2,7 +2,7 @@ __all__ = ["JsonCodec"]
 
 import json
 
-from wiga.message import (
+from wiga.models import (
     Message,
     Topic,
 )
@@ -12,12 +12,20 @@ from .base import Codec
 
 class JsonCodec(Codec):
     def encode(self, message: Message) -> bytes:
-        return json.dumps(
-            {
-                "topic": message.topic.name,
-                "content": message.content,
-            },
-        ).encode()
+        try:
+            return json.dumps(
+                {
+                    "topic": message.topic.name,
+                    "content": message.content.__json__(),
+                },
+            ).encode()
+        except Exception:
+            return json.dumps(
+                {
+                    "topic": message.topic.name,
+                    "content": message.content,
+                },
+            ).encode()
 
     def decode(self, raw_message: bytes) -> Message:
         message_dict = json.loads(raw_message)

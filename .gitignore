@@ -1,4 +1,5 @@
 *.py[cod]
+*.egg-info/
 .coverage
 .mypy_cache/
 /.buildts
